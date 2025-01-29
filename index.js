@@ -23,6 +23,8 @@ app.get('/', (req, res) => {
                 .btn-custom { background-color: #61dafb; border: none; padding: 10px 20px; font-size: 1.2rem; opacity: 0; transition: all 0.3s ease; }
                 .btn-custom:hover { background-color: #21a1f1; transform: scale(1.1); }
                 .content { opacity: 0; }
+                .image-container { margin-top: 30px; }
+                .video-container { margin-top: 30px; }
             </style>
         </head>
         <body>
@@ -30,6 +32,16 @@ app.get('/', (req, res) => {
             <p>This is a simple Node.js website with Bootstrap styling.</p>
             <a href="/about" class="btn btn-custom" id="btn">Learn More</a>
             
+            <!-- Cartoon Image -->
+            <div class="image-container">
+                <img src="https://example.com/cartoon-image.jpg" alt="Cartoon Image" width="300" />
+            </div>
+
+            <!-- Cartoon Video -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/example-cartoon-video" frameborder="0" allowfullscreen></iframe>
+            </div>
+
             <script>
                 gsap.to("#title", { duration: 1, opacity: 1, y: -20, ease: "power2.out" });
                 gsap.to("#btn", { duration: 1.5, opacity: 1, delay: 0.5, y: -10, ease: "power2.out" });
@@ -82,4 +94,5 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 module.exports = app;
+
 
