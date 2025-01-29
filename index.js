@@ -20,16 +20,23 @@ app.get('/', (req, res) => {
             <style>
                 body { background-color: #282c34; color: white; text-align: center; padding: 50px; }
                 h1 { font-size: 3rem; opacity: 0; }
-                .btn-custom { background-color: #61dafb; border: none; padding: 10px 20px; font-size: 1.2rem; opacity: 0; }
+                .btn-custom { background-color: #61dafb; border: none; padding: 10px 20px; font-size: 1.2rem; opacity: 0; transition: all 0.3s ease; }
+                .btn-custom:hover { background-color: #21a1f1; transform: scale(1.1); }
+                .content { opacity: 0; }
             </style>
         </head>
         <body>
             <h1 id="title">Welcome to Prasad Kale World!</h1>
             <p>This is a simple Node.js website with Bootstrap styling.</p>
             <a href="/about" class="btn btn-custom" id="btn">Learn More</a>
+            
             <script>
                 gsap.to("#title", { duration: 1, opacity: 1, y: -20, ease: "power2.out" });
                 gsap.to("#btn", { duration: 1.5, opacity: 1, delay: 0.5, y: -10, ease: "power2.out" });
+
+                $(document).ready(function() {
+                    gsap.to(".content", { opacity: 1, duration: 2, delay: 1 });
+                });
             </script>
         </body>
         </html>
@@ -48,11 +55,18 @@ app.get('/about', (req, res) => {
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+            <style>
+                body { background-color: #20232a; color: white; text-align: center; padding: 50px; }
+                h1 { opacity: 0; }
+                .btn-custom { background-color: #61dafb; border: none; padding: 10px 20px; font-size: 1.2rem; opacity: 0; transition: all 0.3s ease; }
+                .btn-custom:hover { background-color: #21a1f1; transform: scale(1.1); }
+            </style>
         </head>
-        <body style="background-color: #20232a; color: white; text-align: center; padding: 50px;">
+        <body>
             <h1 id="about-title">About This Website</h1>
             <p>This is a simple website built using Express and Bootstrap.</p>
-            <a href="/" class="btn btn-primary" id="back-btn">Go Back</a>
+            <a href="/" class="btn btn-custom" id="back-btn">Go Back</a>
+            
             <script>
                 gsap.from("#about-title", { duration: 1, opacity: 0, y: 20, ease: "power2.out" });
                 gsap.from("#back-btn", { duration: 1.5, opacity: 0, delay: 0.5, y: 10, ease: "power2.out" });
@@ -68,3 +82,4 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 module.exports = app;
+
