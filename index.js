@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
         </head>
         <body>
             <h1 id="title">Welcome to Prasad Kale World!</h1>
-            <p>This is a simple Node.js website with Bootstrap styling.</p>
+            <p>prasad kale...............................................!.</p>
             <a href="/about" class="btn btn-custom" id="btn">Learn More</a>
             
             <!-- Cartoon Image -->
